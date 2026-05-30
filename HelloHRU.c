@@ -21,6 +21,12 @@ int main()
     // pi = 3.14159; 
     // printf("Value of pi: %.2lf\n", pi); // Print pi with 2 decimal places
     // printf("3 digits of pi aree: %.3lf\n", pi); // Print pi with 3 decimal places
+
+    // ? For String: (using char array)
+    // char name[] = "Hello, World!"; 
+    // printf("Name: %s\n", name); // Print the string stored in name variable
+    // !%s format specifier is used to print strings in C. It expects a null-terminated character array (string) as an argument and prints the characters until it encounters the null terminator '\0'.  
+
     // sizeof(double); // This will return the size of the double data type in bytes
     //printf("Size of double: %zu bytes\n", sizeof(double)); // Print the size of double data type in bytes
     //!Note: The %zu format specifier is used to print the size_t type, which is the type returned by the sizeof operator. It ensures that the output is correctly formatted regardless of the platform or architecture.
@@ -123,10 +129,97 @@ int main()
 
     //? Q: What is type casting?
     // A: Type casting is the process of converting a variable from one data type to another. In C, you can perform type casting using the syntax (data_type) variable. For example:
+    // Type casting is also called type conversion. It can be implicit (automatic) or explicit (manual). Implicit type casting occurs when the compiler automatically converts one data type to another during an operation, while explicit type casting is done by the programmer to force a conversion.
     // int num = 5;
     // float result = (float)num / 2; // This will convert num to a float before performing the division, resulting in 2.5 instead of 2.
 
-    round(3.14159); // This will round the value of pi to the nearest integer, which is 3
-    printf("Rounded value of pi: %.2f\n", round(3.14159)); // Print the rounded value of pi with no decimal places
-    return 0; 
+    // * Conditonal (Ternary) Operators:
+    // int a = 10, b = 20;
+    // int max = (a > b) ? a : b; // This will assign the value of a to max if a is greater than b, otherwise it will assign the value of b to max
+    // printf("The maximum value is: %d\n", max);
+    // *if-else statements:
+    // int marks = 70;
+    // if (marks >= 70) {
+    //     printf("Grade: A\n");
+    // } else if (marks >= 60) {
+    //     printf("Grade: B\n");
+    // } else if (marks >= 50) {
+    //     printf("Grade: C\n");
+    // } else {
+    //     printf("Grade: F\n");
+    // }
+
+    //* Switch statements:
+    // int day = 3;
+    // switch (day) {
+    //     case 1:
+    //         printf("Monday\n");
+    //         break;
+    //     case 2:
+    //         printf("Tuesday\n");
+    //         break;
+    //     case 3:
+    //         printf("Wednesday\n");
+    //         break;
+    //     default:
+    //         printf("Invalid day\n");
+    // }
+
+    //? When can we omit curly braces in if-else statements?
+    // A: Curly braces can be omitted in if-else statements when there is only a single statement to execute within the block. For example:
+
+    // * Comma Operator:
+    // int a = 5, b = 10;
+    // int result = (a++, b++); // The comma operator evaluates both expressions but returns the value of the second expression, so result will be 10
+
+    // Loops:
+    // * For loop:
+    // Syntax: for (initialization; condition; increment/decrement) {
+    //     Code to be executed in each iteration
+    // }
+    // Type 1:
+    // for (int i = 0; i < 5; i++) {
+    //     printf("Iteration: %d\n", i);
+    // }
+    //  Type 2:  
+    // int j = 0;
+    // for (; j < 5; j++) {
+    //     printf("Iteration: %d\n", j);
+    // }
+    // Type 3:
+    // int k = 0;
+    // for (;;) {
+    //     if (k >= 5) {
+    //         break; // Exit the loop when k is 5 or greater
+    //     }
+    //     printf("Iteration: %d\n", k);
+    //     k++;
+    // }
+    // Type 4: (Using multiple variables in for loop)
+    // int x, y;
+    // for (x = 0, y = 10; x < 5 && y > 5; x++, y--) {
+    //     printf("x: %d, y: %d\n", x, y);
+    // }
+    // Type 5: (Infinite loop)
+    // for (;;) {
+    //     printf("This is an infinite loop.\n");
+    // }
+    // Type 6: (Using for loop without initialization and increment/decrement)
+    // int m = 0;
+    // for (; m < 5;) {
+    //     printf("Iteration: %d\n", m);
+    //     m++;
+    // }
+    // Type 7: User controlled loop:
+    // int n;
+    // if (scanf("%d", &n) != 1 || n < 0) {
+    //     printf("Invalid input\n");
+    //     return 1;
+    // }
+
+    // for (int i = 0; i < n; ++i) {
+    //     printf("Iteration %d\n", i); // runs n times: i = 0 .. n-1
+    // }
+
+    return 0;
 }
