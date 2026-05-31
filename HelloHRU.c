@@ -200,7 +200,7 @@ int main()
     // for (x = 0, y = 10; x < 5 && y > 5; x++, y--) {
     //     printf("x: %d, y: %d\n", x, y);
     // }
-    // Type 5: (Infinite loop)
+    //! Type 5: (Infinite loop)
     // for (;;) {
     //     printf("This is an infinite loop.\n");
     // }
@@ -210,7 +210,7 @@ int main()
     //     printf("Iteration: %d\n", m);
     //     m++;
     // }
-    // Type 7: User controlled loop:
+    // !Type 7: User controlled loop:
     // int n;
     // if (scanf("%d", &n) != 1 || n < 0) {
     //     printf("Invalid input\n");
@@ -221,5 +221,47 @@ int main()
     //     printf("Iteration %d\n", i); // runs n times: i = 0 .. n-1
     // }
 
+    // *continue statement:
+    // for (int i = 0; i < 10; i++) {
+    //     if (i % 2 == 0) {
+    //         continue; // Skip the rest of the loop body for even numbers
+    //     }
+    //     else
+    //     {
+    //         printf("Odd number: %d\n", i); // This will print only odd numbers from 0 to 9
+    //     }
+    // }
+
+    // * While loop:
+    // int count = 0;
+    // while (count < 5) {
+    //     printf("Count: %d\n", count);
+    //     count++;
+    // }
+
+    //? Q: When to use for loop and when to use while loop?
+    // A: Use a for loop when the number of iterations is known beforehand or when you want to initialize and update a loop variable in a single line. 
+    // Use a while loop when the number of iterations is not known and you want to continue looping until a certain condition is met.
+
+    //! 1 always means true and 0 always means false in C. Any non-zero value is considered true, but it is common practice to use 1 to represent true for clarity.
+
+    // Important concept:
+    // To remove last digit of a number: num = num / 10; (e.g., if num is 123, after this operation it will become 12)
+    // To get last digit of a number: last_digit = num % 10; (e.g., if num is 123, last_digit will be 3)
+
+    // Do-While loop:
+    // Syntax: do {
+    //     Code to be executed at least once
+    // } while (condition);
+    // Example:
+    // int i = 0;
+    // do {
+    //     printf("Iteration: %d\n", i);
+    //     i++;
+    // } while (i < 5);
+
+    //? Q: When to use do-while loop?
+    // A: Use a do-while loop when you want to ensure that the code block is executed at least once, regardless of the condition. This is because the condition is evaluated after the code block is executed in a do-while loop, unlike in a while loop where the condition is evaluated before the code block is executed.
+    
     return 0;
 }
