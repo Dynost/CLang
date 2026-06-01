@@ -1,13 +1,13 @@
-   int n1 = n;
-    int c = 0;
-    while (n > 0) {
-        c++;
-        n /= 10;
-    }
-    int n3 = 0;
-    while (n1 > 0) {
-        n3 = n3 + (n1 % 10) * pow(10, c);
-        n1 = n1 / 10;
-        c--;
-    }
-    printf("Reverse is: %d\n", n3);
+    // // Pattern 6: sideways pyramid
+    // for (int i = 1; i <= n; i++) {
+    //     for (int j = 1; j <= i; j++) {
+    //         printf("*");
+    //     }
+    //     printf("\n");
+    // }
+    // for (int i = n - 1; i >= 1; i--) {
+    //     for (int j = 1; j <= i; j++) {
+    //         printf("*");
+    //     }
+    //     printf("\n");
+    // }

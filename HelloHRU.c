@@ -245,23 +245,35 @@ int main()
 
     //! 1 always means true and 0 always means false in C. Any non-zero value is considered true, but it is common practice to use 1 to represent true for clarity.
 
-    // Important concept:
+    // ?Important concept:
     // To remove last digit of a number: num = num / 10; (e.g., if num is 123, after this operation it will become 12)
     // To get last digit of a number: last_digit = num % 10; (e.g., if num is 123, last_digit will be 3)
 
-    // // Do-While loop:
+    // * Do-While loop:
     // Syntax: do {
     //     Code to be executed at least once
     // } while (condition);
     // // Example:
-    int i = 0;
-    do {
-        printf("Iteration: %d\n", i);
-        i++;
-    } while (i < 5);
+    // int i = 0;
+    // do {
+    //     printf("Iteration: %d\n", i);
+    //     i++;
+    // } while (i < 5);
 
     //? Q: When to use do-while loop?
     // A: Use a do-while loop when you want to ensure that the code block is executed at least once, regardless of the condition. This is because the condition is evaluated after the code block is executed in a do-while loop, unlike in a while loop where the condition is evaluated before the code block is executed.
     
+    //* Nested Loops:
+    int n=5;
+    //outer - no. of rows
+    for(int i=1; i <= 5; i++){
+        //inner - no. of columns
+        for(int j=1; j <= n; j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+
+
     return 0;
 }
