@@ -281,7 +281,7 @@ int main()
     //     printf("\n");
     // }
 
-    //* Function calls:
+    //& Function calls:
     // int s = sum(3,4);
     // printf("%d", s);
     printMessage();
