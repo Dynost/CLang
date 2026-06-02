@@ -1,5 +1,12 @@
 #include <stdio.h>
 #include <math.h>
+
+int sum(int a,int b); //! Declaration of Function sum
+// * Use of void return type in function declaration
+void printMessage(); 
+// ? Q: What is the purpose of void return type in function declaration?
+// A: The void return type in a function declaration indicates that the function does not return any value. It is used when the function performs an action but does not need to provide any information back to the caller. For example, a function that prints a message to the console might use void as its return type because it does not need to return any data.
+
 int main()
 {
 
@@ -264,16 +271,29 @@ int main()
     // A: Use a do-while loop when you want to ensure that the code block is executed at least once, regardless of the condition. This is because the condition is evaluated after the code block is executed in a do-while loop, unlike in a while loop where the condition is evaluated before the code block is executed.
     
     //* Nested Loops:
-    int n=5;
-    //outer - no. of rows
-    for(int i=1; i <= 5; i++){
-        //inner - no. of columns
-        for(int j=1; j <= n; j++){
-            printf("*");
-        }
-        printf("\n");
-    }
+    // int n=5;
+    // //outer - no. of rows
+    // for(int i=1; i <= 5; i++){
+    //     //inner - no. of columns
+    //     for(int j=1; j <= n; j++){
+    //         printf("*");
+    //     }
+    //     printf("\n");
+    // }
 
-
-    return 0;
+    //* Function calls:
+    // int s = sum(3,4);
+    // printf("%d", s);
+    printMessage();
+    return 0; // Return 0 indicates that the program executed successfully. It is a common convention in C to return 0 from the main function to indicate that the program has completed without errors.
 }
+//* Function definition of sum or Function implementation of sum
+int sum (int a,int b){
+    return a+b;
+}
+void printMessage(){
+    printf("Hello World!\n");
+}
+
+//? Pass by value vs Pass by reference:
+// A: In C, all function arguments are passed by value, which means that a copy of the argument is made and passed to the function. This means that any changes made to the parameter inside the function do not affect the original argument outside the function. However, you can achieve pass by reference behavior in C by passing a pointer to the variable instead of the variable itself. This way, the function can modify the value at the memory address pointed to by the pointer, effectively allowing you to change the original variable outside the function.
