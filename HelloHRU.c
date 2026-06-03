@@ -36,7 +36,7 @@ int main()
 
     // sizeof(double); // This will return the size of the double data type in bytes
     //printf("Size of double: %zu bytes\n", sizeof(double)); // Print the size of double data type in bytes
-    //!Note: The %zu format specifier is used to print the size_t type, which is the type returned by the sizeof operator. It ensures that the output is correctly formatted regardless of the platform or architecture.
+    //!Note: The %zu or %lu format specifier is used to print the size_t type, which is the type returned by the sizeof operator. It ensures that the output is correctly formatted regardless of the platform or architecture.
     
     // *All escape sequences:
     // printf("This is a new line.\n");
