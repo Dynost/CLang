@@ -86,7 +86,7 @@ int main() {
     // }
 
     //* Multi-Dimensional Arrays:
-
+        //$ Think of it as a matrix or a table with rows and columns. Each element in a 2D array can be accessed using two indices: one for the row and one for the column. For example, in a 3x3 matrix, you can access the element in the second row and third column using matrix[1][2] (since array indices start at 0).
         // ^ 2D Array Declaration and Initialization:
         // int matrix[3][3] = {
         //     {1, 2, 3},
@@ -106,6 +106,44 @@ int main() {
         //     printf("\n"); // Print a new line after each row
         // }
 
+    // * Qs on Multi-Dimensional Arrays:
+    // & Diagonal Sum of a Square Matrix:
+    // int n;
+    // printf("Order of Square matrix:");
+    // scanf("%d",&n);
+    // int matrix [n][n];
+    // for (int i = 0; i < n;i++){
+    //     for (int j = 0; j < n; j++){
+    //         printf("matrix[%d][%d]:",i,j);
+    //         scanf("%d",&matrix[i][j]);
+    //         printf("\n");
+    //     }
+    // }
+    // for (int i = 0; i < n; i++) {
+    //     for (int j = 0; j < n; j++) {
+    //         printf("%d ", matrix[i][j]); // Print each element of the 2D array followed by a space
+    //     }
+    //     printf("\n"); // Print a new line after each row
+    // }
 
+    // int sum = 0;
+    // for (int i = 0; i < n; i++) {
+    //     sum += matrix[i][i];
+    // }
+    // printf("Sum is %d",sum);
+
+
+    // * Strings:
+    // A string in C is an array of characters terminated by a null character '\0'. The null character indicates the end of the string. For example, the string "Hello" is stored as an array of characters: {'H', 'e', 'l', 'l', 'o', '\0'}.
+    // char str[] = "Hello, World!"; // Declaration and initialization of a string
+    //! No need to explicitly add the null character '\0' at the end of the string when using double quotes, as it is automatically added by the compiler. However, if you are declaring a string using a character array and initializing it with individual characters, you need to ensure that you include the null character at the end to properly terminate the string. For example:
+    // char str[] = {'H', 'e', 'l', 'l', 'o', '\0'}; // Declaration and initialization of a string with explicit null character
+    // char str[20]; // Declaration of a string with a maximum size of 20 characters
+    // printf("Enter a string: ");
+    // scanf("%s", str); // Read a string from user input (note: this will read only up to the first whitespace character)
+    // printf("You entered: %s\n", str); // Print the string entered by the user
+
+
+    
     return 0;
 }
