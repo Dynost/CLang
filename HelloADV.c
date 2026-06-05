@@ -2,6 +2,16 @@
 #include <math.h>
 #include <string.h>
 
+void valueChange(int *ptr) {
+    *ptr = 100; //$ Change the value at the memory address pointed to by ptr
+}
+//^ Example:
+struct User{
+    char name[50];
+    int age;
+    float height;
+};
+
 
 int main() {
 
@@ -192,7 +202,7 @@ int main() {
     // scanf("%[^\n]", str); // Read a string with spaces
 
     // int i = 0, j = strlen(str) - 1;
-    // int isPalindrome = 1; // Flag to indicate if the string is a palindrome
+    // int isPalindrome = 1; //$ Flag to indicate if the string is a palindrome
 
     // while (i <= j) {
     //     if (str[i] != str[j]) {
@@ -217,4 +227,124 @@ int main() {
     // }
     // printf("Toggled case string: %s", str);
     // return 0;
+
+    //* Pointers:
+
+    //? Q:What are pointers in C?
+    // A: A pointer in C is a variable that stores the memory address of another variable. It allows you to indirectly access and manipulate the value stored at that memory address. Pointers are used for various purposes, such as dynamic memory allocation, passing arguments to functions by reference, and creating complex data structures like linked lists and trees.
+
+    //? Q: Syntax for declaring a pointer:
+    // A: data_type *pointer_name = &variable_name; // Example: int *ptr = &int_var; // Declaration of a pointer to an integer variable
+
+    //? Q: What is the use of %u format specifier in C?
+    // A: The %u format specifier in C is used to print an unsigned integer. It expects an unsigned integer as an argument and prints its value in decimal format. For example:
+    // unsigned int num = 42;
+    // printf("Unsigned integer: %u\n", num); // Output: Unsigned integer: 42
+    //$ Unsigned integer is a data type that can only represent non-negative values (0 and positive integers). It is commonly used when you know that the variable will never hold a negative value, allowing you to utilize the full range of positive values for that data type.
+    // Size of unsigned int is typically the same as the size of int, which is usually 4 bytes (32 bits) on most platforms, but it can vary depending on the architecture and compiler.
+
+
+    // ^ Example:
+    // int num = 42; // Declare an integer variable
+    // int *ptr = &num; // Declare a pointer to an integer and initialize it with the address of num
+    // printf("Value of num: %d\n", num); // Print the value of num
+    // printf("Address of num: %p\n", &num); // Print the memory address of num //! %p used for pointers
+    // printf("Value stored in ptr (address of num): %p\n", ptr); // Print the value stored in ptr, which is the address of num
+    // printf("Value pointed to by ptr: %d\n", *ptr); // Print the value pointed to by ptr, which is the value of num
+    //! * is called value at operator or dereference operator. It is used to access the value stored at the memory address pointed to by the pointer.
+    // printf("Value pointed to by ptr: %d\n", &ptr); // This will print the memory address of the pointer variable ptr itself, not the value it points to. The & operator is used to get the address of a variable, so &ptr gives you the address of the pointer variable ptr.
+
+    //$Output:
+    // Value of num: 42
+    // Address of num: 0x7ffee3bff5ac (this will vary each time you run the program)
+    // Value stored in ptr (address of num): 0x7ffee3bff5ac (this will be the same as the address of num)
+    // Value pointed to by ptr: 42
+    // Value pointed to by ptr: 0x7ffee3bff5a0 (this will be the memory address of the pointer variable ptr itself, which is different from the address of num)
+    
+
+    // * Double pointers:
+
+    //? Q: What is a double pointer in C?
+    // A: A double pointer in C is a pointer that points to another pointer. It is used to store the address of a pointer variable, allowing for multiple levels of indirection. Double pointers are often used in situations where you need to modify the value of a pointer variable within a function or when working with dynamic memory allocation for multi-dimensional arrays.   
+
+    //? Q: Syntax for declaring a double pointer:
+    // A: data_type **double_pointer_name = &pointer_name; 
+    // A: Example: int **doublePtr = &ptr; // Declaration of a double pointer to an integer pointer variable
+
+    //? Use of double pointers:
+    // A: Double pointers are used when you want to modify the value of a pointer variable within a function. Since C uses pass by value, if you want to change the value of a pointer variable (i.e., make it point to a different address), you need to pass a pointer to that pointer variable, which is a double pointer. This allows the function to access and modify the original pointer variable's value, effectively changing where it points to.
+
+    // int num = 42;
+    // int *ptr = &num; // Pointer to an integer
+    // int **doublePtr = &ptr; // Pointer to a pointer to an integer
+    // printf("Value of num: %d\n", num); // Print the value of num
+    // printf("Value pointed to by ptr: %d\n", *ptr); // Print the value pointed to by ptr, which is the value of num
+    // printf("Value pointed to by doublePtr: %d\n", **doublePtr); // Print the value pointed to by doublePtr, which is the value of num
+    // printf("Address of num: %p\n", &num); // Print the memory address of num
+    // printf("Address stored in ptr (address of num): %p\n", ptr); // Print the value stored in ptr, which is the address of num
+    // printf("Address stored in doublePtr (address of ptr): %p\n", double  Ptr); // Print the value stored in doublePtr, which is the address of ptr
+    // printf("Address of ptr: %p\n", &ptr); // Print the memory    address of the pointer variable ptr itself
+    // printf("Address of doublePtr: %p\n", &doublePtr); // Print   the memory address of the pointer variable doublePtr itself
+
+    //$ Output:
+    // Value of num: 42
+    // Value pointed to by ptr: 42
+    // Value pointed to by doublePtr: 42
+    // Address of num: 0x7ffee3bff5ac (this will vary each time you run the program)
+    // Address stored in ptr (address of num): 0x7ffee3bff5ac (this will be the same as the address of num)
+    // Address stored in doublePtr (address of ptr): 0x7ffee3bff5a0 (this will be the memory address of the pointer variable ptr itself)
+    // Address of ptr: 0x7ffee3bff5a0 (this will be the same as the address stored in doublePtr)
+    // Address of doublePtr: 0x7ffee3bff598 (this will be the memory address of the pointer variable doublePtr itself)
+
+    //! Triple pointers and beyond also exist, but they are less commonly used and can make code more complex and harder to read. They are typically used in very specific scenarios, such as when working with arrays of pointers or when implementing certain data structures.
+
+    //^ Changing Value of variable using pointer ;
+    // int num = 42;
+    // int *ptr = &num; // Pointer to an integer
+    // printf("Value of num before change: %d\n", num); // Print the value of num before change
+    // *ptr = 100; // Change the value of num using the pointer
+    // printf("Value of num after change: %d\n", num); // Print the value of num after change
+    
+    //* Pass by reference using pointers:
+    // int num = 42;
+    // printf("Value of num before change: %d\n", num); 
+    // valueChange(&num); //$ Pass the address of num to the function to change its value
+    // printf("Value of num after change: %d\n", num);
+
+
+    //* STRUCTURES:
+    
+    //$ Method 1: Using dot operator to assign values to structure members:
+    struct User user1; // Declaration of a structure variable user1 of type User
+    user1.age = 19; // Accessing and assigning value to the age member of user1
+    user1.height = 5.7; // Accessing and assigning value to the height
+    strcpy(user1.name, "Dynost"); // Accessing and assigning value to the name member of user1 using strcpy function from string.h library
+    
+    //$ Method 2: Using list initialization (available in C99 and later):
+    struct User user2 = {"TOP", 25, 5.11}; // Declaration and initialization of a structure variable user2 of type User
+
+    //? Q: Why do we use strcpy to assign a string to the name member of the structure instead of using the assignment operator (=)?
+    // A: We use strcpy to assign a string to the name member of the structure because in C, you cannot directly assign a string to a character array using the assignment operator (=). The assignment operator does not work with arrays, and it will not copy the contents of the string into the character array. Instead, it will attempt to assign the pointer to the string literal, which can lead to undefined behavior. The strcpy function is specifically designed to copy the contents of one string into another, ensuring that the characters are properly copied into the character array and that it is null-terminated.
+
+    printf("User1 Name: %s\n", user1.name); // Print the name member of user1
+    printf("User1 Age: %d\n", user1.age); // Print the age
+    printf("User1 Height: %.2f\n", user1.height); // Print the height member of user1 with 2 decimal places
+
+    printf("User2 Name: %s\n", user2.name); // Print the name member of user2
+    printf("User2 Age: %d\n", user2.age); // Print the age
+    printf("User2 Height: %.2f\n", user2.height); // Print the height member of user2 with 2 decimal places
+
+    //^ Copy Structure:
+    struct User user3; 
+    user3 = user1; // Copying the contents of user1 to user3 using assignment operator (this works for structures)
 }
+
+//* Structures:
+
+//? Syntax for structure declaration:
+// struct structure_name {
+//     data_type member1;
+//     data_type member2;
+//     ...
+// };
+

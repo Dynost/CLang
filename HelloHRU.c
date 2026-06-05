@@ -2,6 +2,12 @@
 #include <math.h>
 
 int sum(int a,int b); //! Declaration of Function sum
+
+// You can also declare and also define the function at the same time but it has to be before main function. For example:
+// int sum(int a, int b) { 
+//     return a + b; 
+// }
+
 // * Use of void return type in function declaration
 void printMessage(); 
 // ? Q: What is the purpose of void return type in function declaration?
@@ -33,12 +39,14 @@ int main()
     // ? For String: (using char array)
     // char name[] = "Hello, World!"; 
     // printf("Name: %s\n", name); // Print the string stored in name variable
-    // !%s format specifier is used to print strings in C. It expects a null-terminated character array (string) as an argument and prints the characters until it encounters the null terminator '\0'.  
+    //! %s format specifier is used to print strings in C. It expects a null-terminated character array (string) as an argument and prints the characters until it encounters the null terminator '\0'.  
 
     // sizeof(double); // This will return the size of the double data type in bytes
     //printf("Size of double: %zu bytes\n", sizeof(double)); // Print the size of double data type in bytes
     //!Note: The %zu or %lu format specifier is used to print the size_t type, which is the type returned by the sizeof operator. It ensures that the output is correctly formatted regardless of the platform or architecture.
     
+    //! %p format specifier is used to print the memory address of a variable in C. It expects a pointer as an argument and prints the address in a platform-dependent format (usually hexadecimal). 
+
     // *All escape sequences:
     // printf("This is a new line.\n");
     // printf("This is a tab:\tHere is the tabbed text.\n");

@@ -1,6 +1,4 @@
-        // for (int i = 0; i < 3; i++) {
-        //     for (int j = 0; j < 3; j++) {
-        //         printf("%d ", matrix[i][j]); // Print each element of the 2D array followed by a space
-        //     }
-        //     printf("\n"); // Print a new line after each row
-        // }
+    int num = 42;
+    printf("Value of num before change: %d\n", num); 
+    valueChange(&num); //$ Pass the address of num to the function to change its value
+    printf("Value of num after change: %d\n", num);
