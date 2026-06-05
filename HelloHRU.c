@@ -9,6 +9,7 @@ void printMessage();
 
 int main()
 {
+    //$ address-of operator (&)
 
     // int vonum;       /* declare vonum */
     // vonum = 60;      /* assign or initialize value to vonum */
@@ -284,7 +285,10 @@ int main()
     //& Function calls:
     // int s = sum(3,4);
     // printf("%d", s);
-    printMessage();
+    //printMessage();
+
+    int n = 5;
+    printf("size: %zu bytes\n", sizeof(n)); // Print the size of n variable in bytes
     return 0; // Return 0 indicates that the program executed successfully. It is a common convention in C to return 0 from the main function to indicate that the program has completed without errors.
 }
 //* Function definition of sum or Function implementation of sum

@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+
 
 int main() {
 
@@ -138,12 +140,50 @@ int main() {
     // char str[] = "Hello, World!"; // Declaration and initialization of a string
     //! No need to explicitly add the null character '\0' at the end of the string when using double quotes, as it is automatically added by the compiler. However, if you are declaring a string using a character array and initializing it with individual characters, you need to ensure that you include the null character at the end to properly terminate the string. For example:
     // char str[] = {'H', 'e', 'l', 'l', 'o', '\0'}; // Declaration and initialization of a string with explicit null character
-    // char str[20]; // Declaration of a string with a maximum size of 20 characters
+    //$ Another use case of '\0' is to create an empty string. An empty string is a string that contains no characters and is represented by a null character at the beginning. For example:
+    // char emptyStr[] = ""; // Declaration and initialization of an empty string (contains only the null character '\0')
+    // char emptyStr[] = {'\0'}; // Declaration and initialization of an empty string using a character array (contains only the null character '\0')
+    // $ Another use case is to print characters of string one by one using a loop until we encounter the null character '\0'. For example:
+    // char str[] = "Hello, World!";
+    // for (int i = 0; str[i] != '\0'; i++) {
+    //     printf("%c ", str[i]); // Print each character of the string followed by a space
+    // }
+
+    //! When we input String using scanf, we do not need to write & before the string variable because the name of the array (string) itself acts as a pointer to the first element of the array. The scanf function expects a pointer to the variable where it will store the input, and since the name of the array is already a pointer to its first element, we can directly pass it to scanf without using the address-of operator (&).
+    // example: char str[20]; 
     // printf("Enter a string: ");
-    // scanf("%s", str); // Read a string from user input (note: this will read only up to the first whitespace character)
-    // printf("You entered: %s\n", str); // Print the string entered by the user
+    // scanf("%s", str); // No need to use & before str.
 
+    //! scanf terminates at "space". So if we input "Hello World", only "Hello" will be stored in the string variable, and "World" will be left in the input buffer. 
+    //$ Scanset can be used to read a string with spaces. For example:
+    // char str[50];
+    // printf("Enter a string: ");
+    // scanf("%[^\n]", str); //^ This will read the entire line of input until a newline character is encountered, allowing you to input strings with spaces.
 
+    //$ To read a string with spaces using fgets, you can use the following code:
+    // char str[50];
+    // printf("Enter a string: ");
+    // fgets(str, sizeof(str), stdin); //^ This will read a line of input from the user, including spaces and also the newline character, and store it in the str variable. The sizeof(str) ensures that we do not exceed the buffer size of the str array.
+    
+    //? Q: How to remove the newline character added by fgets at the end of the string?
+    // A: The newline character added by fgets can be removed by replacing it with a null character '\0'. This can be done using the following code:
+    // char str[50];
+    // printf("Enter a string: ");
+    // fgets(str, sizeof(str), stdin);
+    // str[strcspn(str, "\n")] = '\0'; // Remove the newline character
+
+    //? Q: What is the difference between scanf and fgets for reading strings in C?
+    // A: The main difference between scanf and fgets for reading strings in C is that scanf stops reading input at the first whitespace character (space, tab, or newline), while fgets reads an entire line of input, including spaces, until a newline character is encountered. This means that scanf is not suitable for reading strings with spaces, while fgets can handle such input. Additionally, fgets also allows you to specify the maximum number of characters to read, which can help prevent buffer overflow issues.
+
+    //? Q: Why should we use strlen instead of sizeof to get the length of a string in C?
+    // A: We should use strlen instead of sizeof to get the length of a string in C because sizeof returns the size of the array in bytes, which includes the null terminator '\0' at the end of the string. On the other hand, strlen calculates the length of the string by counting the number of characters until it reaches the null terminator, giving you the actual length of the string without including the null character. Therefore, using sizeof will give you a larger value than the actual length of the string, while strlen will provide you with the correct length.
+
+    //* <string.h> library functions:
+    // strlen(str): Returns the length of the string str.
+    // strcpy(dest, src): Copies the string src to the destination dest.
+    // strcat(dest, src): Concatenates the string src to the end of the destination dest.
+    // strcmp(str1, str2): Compares two strings and returns an integer (on the basis of their ASCII values) indicating their relationship.
+    // strncmp(str1, str2, n): Compares the first n characters of two strings and returns an integer indicating their relationship.
     
     return 0;
 }
