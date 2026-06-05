@@ -185,5 +185,36 @@ int main() {
     // strcmp(str1, str2): Compares two strings and returns an integer (on the basis of their ASCII values) indicating their relationship.
     // strncmp(str1, str2, n): Compares the first n characters of two strings and returns an integer indicating their relationship.
     
-    return 0;
+    //& Palindrome Check:
+
+    // char str[50];
+    // printf("Enter a string: ");
+    // scanf("%[^\n]", str); // Read a string with spaces
+
+    // int i = 0, j = strlen(str) - 1;
+    // int isPalindrome = 1; // Flag to indicate if the string is a palindrome
+
+    // while (i <= j) {
+    //     if (str[i] != str[j]) {
+    //         isPalindrome = 0; // Set the flag to false if characters do not match
+    //         break; // Exit the loop since we found a mismatch
+    //     }
+    //     i++; // Move the left pointer towards the center
+    //     j--; // Move the right pointer towards the center
+    // }
+    // printf((isPalindrome==0)?"Not a palindrome":"Palindrome");
+
+    //& Toggle Case of a String:
+    // char str[50];
+    // printf("Enter a string: ");
+    // scanf("%[^\n]", str); // Read a string with spaces
+    // for (int k = 0; k < strlen(str); k++) {
+    //     if (str[k] >= 'a' && str[k] <= 'z') {
+    //         str[k] = str[k] - ('a' - 'A'); // $ Convert lowercase to uppercase
+    //     } else if (str[k] >= 'A' && str[k] <= 'Z') {
+    //         str[k] = str[k] + ('a' - 'A'); // $ Convert uppercase to lowercase
+    //     }
+    // }
+    // printf("Toggled case string: %s", str);
+    // return 0;
 }
