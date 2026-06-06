@@ -5,12 +5,43 @@
 void valueChange(int *ptr) {
     *ptr = 100; //$ Change the value at the memory address pointed to by ptr
 }
+//* Structures:
+
+//? Syntax for structure declaration:
+// struct structure_name {
+//     data_type member1;
+//     data_type member2;
+//     ...
+// };
+
 //^ Example:
-struct User{
+// struct User{
+//     char name[50];
+//     int age;
+//     float height;
+// };
+
+typedef struct User{
     char name[50];
     int age;
     float height;
-};
+} UserAlias; // This creates an alias for the structure type, allowing you to use UserAlias instead of struct UserAlias when declaring variables of this type.
+
+
+// void displayUser(struct User s) {
+//     printf("%s Name: %s\n",s.name,s.name); // Print the name member of the user
+//     printf("%s Age: %d\n",s.name, s.age); // Print the age
+//     printf("%s Height: %.2f\n",s.name, s.height); // Print the height member of the user with 2 decimal places
+// }
+void changeUser(struct User *s) {
+    s->age = 30; // Change the age member of the user using pointer to structure
+    s->height = 6.0; // Change the height member of the user using pointer to structure
+}
+void displayUser(struct User *s) {
+    printf("%s Name: %s\n",s->name,s->name); // Print the name member of the user
+    printf("%s Age: %d\n",s->name, s->age); // Print the age
+    printf("%s Height: %.2f\n",s->name, s->height); // Print the height member of the user with 2 decimal places
+}
 
 
 int main() {
@@ -333,18 +364,19 @@ int main() {
     printf("User2 Name: %s\n", user2.name); // Print the name member of user2
     printf("User2 Age: %d\n", user2.age); // Print the age
     printf("User2 Height: %.2f\n", user2.height); // Print the height member of user2 with 2 decimal places
-
+   
     //^ Copy Structure:
     struct User user3; 
     user3 = user1; // Copying the contents of user1 to user3 using assignment operator (this works for structures)
+    changeUser(&user3); // Change the age and height of user3 using a function that takes a pointer to the structure
+    displayUser(&user3); 
+
+    UserAlias user4 = {"Dyna", 28, 5.9}; // Using the typedef alias to declare and initialize a structure variable user4 of type UserAlias
+    displayUser(&user4); 
+
+
+    //& Array of Structures:
+    // A: Structures can also be used to create an array of structures, which allows you to store multiple instances of the structure in a single variable.
+    //^ For example refer to StructArrayProject.c file in AdvancedPrograms folder.
 }
-
-//* Structures:
-
-//? Syntax for structure declaration:
-// struct structure_name {
-//     data_type member1;
-//     data_type member2;
-//     ...
-// };
 
