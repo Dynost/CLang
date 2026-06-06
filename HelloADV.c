@@ -2,6 +2,32 @@
 #include <math.h>
 #include <string.h>
 
+//* #define Directive:
+//? What is use of #define in C?
+// A: The #define directive in C is used to create symbolic constants or macros. It allows you to define a name for a constant value or a block of code that can be reused throughout your program. When the preprocessor encounters a #define directive, it replaces all occurrences of the defined name with the specified value or code before the actual compilation of the program begins. This can help improve code readability and maintainability by giving meaningful names to constant values or commonly used code snippets.
+// A: #define is always for global scope
+//^Example:
+#define PI 3.14159 // Define a symbolic constant for the value of pi
+#define SQUARE(x) ((x) * (x)) // Define a macro to calculate the square of a number
+#define MAX(a, b) ((a) > (b) ? (a) : (b)) // Define a macro to find the maximum of two numbers
+#define show(a,b) \
+            do{ \
+                printf("%d %d",a,b); \
+            }while(0)\
+
+            //$ Don't use any ; here
+
+// *Enum:
+//? What is enum?
+// A: Enum (enumeration) is a user-defined data type in C used to assign names to integral constants. It improves code readability and maintainability. By default, the values start from 0 and increment by 1, unless explicitly specified.
+
+//^ Global scope enum 
+enum val{
+    n1 = 10, n2 = 30
+};
+//$ Only integers can be stored in enum
+
+
 void valueChange(int *ptr) {
     *ptr = 100; //$ Change the value at the memory address pointed to by ptr
 }
@@ -381,26 +407,61 @@ int main() {
     //? Q: Why do we use strcpy to assign a string to the name member of the structure instead of using the assignment operator (=)?
     // A: We use strcpy to assign a string to the name member of the structure because in C, you cannot directly assign a string to a character array using the assignment operator (=). The assignment operator does not work with arrays, and it will not copy the contents of the string into the character array. Instead, it will attempt to assign the pointer to the string literal, which can lead to undefined behavior. The strcpy function is specifically designed to copy the contents of one string into another, ensuring that the characters are properly copied into the character array and that it is null-terminated.
 
-    printf("User1 Name: %s\n", user1.name); // Print the name member of user1
-    printf("User1 Age: %d\n", user1.age); // Print the age
-    printf("User1 Height: %.2f\n", user1.height); // Print the height member of user1 with 2 decimal places
+    // printf("User1 Name: %s\n", user1.name); // Print the name member of user1
+    // printf("User1 Age: %d\n", user1.age); // Print the age
+    // printf("User1 Height: %.2f\n", user1.height); // Print the height member of user1 with 2 decimal places
 
-    printf("User2 Name: %s\n", user2.name); // Print the name member of user2
-    printf("User2 Age: %d\n", user2.age); // Print the age
-    printf("User2 Height: %.2f\n", user2.height); // Print the height member of user2 with 2 decimal places
+    // printf("User2 Name: %s\n", user2.name); // Print the name member of user2
+    // printf("User2 Age: %d\n", user2.age); // Print the age
+    // printf("User2 Height: %.2f\n", user2.height); // Print the height member of user2 with 2 decimal places
    
-    //^ Copy Structure:
-    struct User user3; 
-    user3 = user1; // Copying the contents of user1 to user3 using assignment operator (this works for structures)
-    changeUser(&user3); // Change the age and height of user3 using a function that takes a pointer to the structure
-    displayUser(&user3); 
+    // //^ Copy Structure:
+    // struct User user3; 
+    // user3 = user1; // Copying the contents of user1 to user3 using assignment operator (this works for structures)
+    // changeUser(&user3); // Change the age and height of user3 using a function that takes a pointer to the structure
+    // displayUser(&user3); 
 
-    UserAlias user4 = {"Dyna", 28, 5.9}; // Using the typedef alias to declare and initialize a structure variable user4 of type UserAlias
-    displayUser(&user4); 
+    // UserAlias user4 = {"Dyna", 28, 5.9}; // Using the typedef alias to declare and initialize a structure variable user4 of type UserAlias
+    // displayUser(&user4); 
 
 
     //& Array of Structures:
     // A: Structures can also be used to create an array of structures, which allows you to store multiple instances of the structure in a single variable.
     //^ For example refer to StructArrayProject.c file in AdvancedPrograms folder.
+
+
+    //* Using #define :
+    printf("Value of PI: %f\n", PI); // Print the value of the symbolic constant PI defined using #define
+    int num = 5;
+    printf("Square of %d: %d\n", num, SQUARE(num)); // Print the square of num using the SQUARE macro defined using #define
+    int a = 10, b = 20;
+    printf("Maximum of %d and %d: %d\n", a, b, MAX(a, b)); // Print the maximum of a and b using the MAX macro defined using #define
+    show(a,b); // This will print the values of a and b using the show macro defined using #define
+
+    //* Using const keyword:
+    const float pi = 3.14159; // Declare a constant variable pi of type float and initialize it with the value of pi
+    printf("Value of pi: %f\n", pi); // Print the value of the constant variable pi
+    // pi = 3.14; // This will cause a compilation error because pi is declared as a constant and cannot be modified after initialization
+
+    //? Q: What is the difference between #define and const in C?
+    // A: The main difference between #define and const in C is that #define is a preprocessor directive that creates a symbolic constant or macro, while const is a keyword used to declare a constant variable. #define is processed by the preprocessor before compilation, and it simply replaces all occurrences of the defined name with the specified value or code. On the other hand, const creates an actual variable that has a specific type and cannot be modified after initialization. Additionally, const variables can be used in expressions and have scope and type checking, while #define constants do not have these features since they are just text replacements.
+
+    //? What is scope in C?
+    // A: Scope in C refers to the region of the program where a variable or function is accessible. It determines the visibility and lifetime of variables and functions. There are three main types of scope in C: block scope, function scope, and file scope. Block scope refers to variables declared within a block of code (enclosed by curly braces {}), and they are only accessible within that block. Function scope refers to variables declared within a function, and they are only accessible within that function. File scope refers to variables declared outside of any function, and they are accessible throughout the entire file after their declaration.
+    //! Enum supports both global and local
+    //$ Redeclaration of same variable in multiple or in same enum is not possible.
+    //$ If not initialised variables in enum take 0,1,... values in order.
+
+    //* Enum Usage:
+    int n = n1;
+    printf("Value of enum n1: %d\n", n1);
+    enum val myVal = n2;
+    printf("Value of enum myVal (n2): %d\n", myVal);
+
+    //^ Local scope Enum
+    enum volume{
+        a1 =5, a7 =8
+    };
+
 }
 
