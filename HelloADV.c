@@ -27,6 +27,14 @@ typedef struct User{
     float height;
 } UserAlias; // This creates an alias for the structure type, allowing you to use UserAlias instead of struct UserAlias when declaring variables of this type.
 
+//* Unions:
+
+//? Syntax for union declaration:
+// union union_name {
+//     data_type member1;
+//     data_type member2;
+//     ...
+// };
 
 // void displayUser(struct User s) {
 //     printf("%s Name: %s\n",s.name,s.name); // Print the name member of the user
@@ -42,6 +50,22 @@ void displayUser(struct User *s) {
     printf("%s Age: %d\n",s->name, s->age); // Print the age
     printf("%s Height: %.2f\n",s->name, s->height); // Print the height member of the user with 2 decimal places
 }
+
+//^ Example:
+// union Data {
+//     int intValue;
+//     float floatValue;
+//     char charValue;
+// };
+
+//? Q: What is the difference between a structure and a union in C?
+// A: The main difference between a structure and a union in C is that in a structure, each member has its own memory location, and the total size of the structure is the sum of the sizes of all its members. In contrast, in a union, all members share the same memory location, and the total size of the union is equal to the size of its largest member. This means that at any given time, only one member of a union can hold a value, while in a structure, all members can hold values simultaneously. 
+// A:Structures are typically used when you need to group related data together, while unions are used when you want to store different types of data in the same memory location to save space.
+
+//? Q:Real life usage of union:
+// A: Unions are often used in situations where you want to store different types of data in the same memory location to save space. For example, if you have a variable that can hold either an integer, a float, or a character, you can use a union to store all three types of data in the same memory location, and only one of them will be active at any given time. This can be useful in scenarios such as implementing a variant type or when working with hardware registers where different fields may represent different types of data.
+
+
 
 
 int main() {
