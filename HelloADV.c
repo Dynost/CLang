@@ -324,6 +324,9 @@ int main() {
     //$ Unsigned integer is a data type that can only represent non-negative values (0 and positive integers). It is commonly used when you know that the variable will never hold a negative value, allowing you to utilize the full range of positive values for that data type.
     // Size of unsigned int is typically the same as the size of int, which is usually 4 bytes (32 bits) on most platforms, but it can vary depending on the architecture and compiler.
 
+    //? Segmentation Fault
+    // A:Dereferencing a NULL pointer or an uninitialized pointer (wild pointer) will result in Undefined Behavior, which typically manifests as a program crash (Segmentation Fault).
+    
 
     // ^ Example:
     // int num = 42; // Declare an integer variable
@@ -334,6 +337,7 @@ int main() {
     // printf("Value pointed to by ptr: %d\n", *ptr); // Print the value pointed to by ptr, which is the value of num
     //! * is called value at operator or dereference operator. It is used to access the value stored at the memory address pointed to by the pointer.
     // printf("Value pointed to by ptr: %d\n", &ptr); // This will print the memory address of the pointer variable ptr itself, not the value it points to. The & operator is used to get the address of a variable, so &ptr gives you the address of the pointer variable ptr.
+
 
     //$Output:
     // Value of num: 42
@@ -354,6 +358,9 @@ int main() {
 
     //? Use of double pointers:
     // A: Double pointers are used when you want to modify the value of a pointer variable within a function. Since C uses pass by value, if you want to change the value of a pointer variable (i.e., make it point to a different address), you need to pass a pointer to that pointer variable, which is a double pointer. This allows the function to access and modify the original pointer variable's value, effectively changing where it points to.
+
+
+    //^ Pointer to a struct can be referenced by either (*ptr).something or ptr->something
 
     // int num = 42;
     // int *ptr = &num; // Pointer to an integer
