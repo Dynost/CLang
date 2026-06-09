@@ -12,6 +12,7 @@ int main() {
     FILE *fp;
     int choice;
     printf("------Student Management System------\n");
+    // Main program loop for the menu-driven system
     do
     {
         printf("\nMenu:\n");
@@ -25,10 +26,11 @@ int main() {
         scanf("%d", &choice);
         getchar();
 
-        St St;
+        St St; // Temporary structure to hold student data
         switch (choice)
         {
         case 1:{
+            // Append mode to add new student records to the end of the file
             fp = fopen("students.txt", "a");
             if (fp == NULL)
             {
@@ -55,6 +57,7 @@ int main() {
             break;
         }
         case 2:{
+            // Read mode to display all records from the file
             fp = fopen("students.txt", "r");
             if (fp == NULL)
             {
@@ -62,6 +65,7 @@ int main() {
                 return 1;
             }
             printf("\n---Student List---\n");
+            // Read formatted data until the end of the file
             while (fscanf(fp, "%s %d %f", St.name, &St.rollno, &St.marks) != EOF) { //$ Display all Student Detail until End of File is reached.
                 printf("Name: %s, Roll No: %d, Marks: %.2f\n", St.name, St.rollno, St.marks);
             }
@@ -70,6 +74,7 @@ int main() {
             break;
         }
         case 3:{
+            // Search for a specific student by roll number
             fp = fopen("students.txt", "r");
             int search,found = 0;
             if (fp == NULL)
@@ -94,6 +99,7 @@ int main() {
             break;
         }
         case 4:
+            // Update student record
             printf("Not Available Yet\n");
             break;
         case 5:
@@ -106,7 +112,7 @@ int main() {
             printf("Invalid choice. Please try again.\n");
         }
 
-    } while (choice != 6);
+    } while (choice != 6); // Continue until user chooses to exit
     
     
 }
