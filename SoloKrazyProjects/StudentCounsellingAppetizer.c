@@ -2,12 +2,33 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct Student{
+    char name[50];
+    float percentile;
+}St;
+
+typedef struct College{
+    char Clname[50];
+    float cutoff;
+}Cl;
+
+
+
+void College(){
+
+}
+
+void Student(){
+    
+}
 
 
 int main() {
     FILE *fp;
     FILE *fp2;
 
+    fp = fopen("college.txt", "w");
+    fp2 = fopen("student.txt", "w");
     if (fp == NULL) {
     perror("Error opening file");
     return;
@@ -20,21 +41,13 @@ int main() {
     printf("Enter your choice: ");
     scanf("%d", &choice);
     getchar();
-
+    printf("\n");
     switch (choice) {
         case 1:
-            fp = fopen("college.txt", "r");
-            if (fp == NULL) {
-            perror("Error opening file");
-            return;
-            }
+            College();
             break;
         case 2:
-            fp2 = fopen("student.txt", "r");
-            if (fp2 == NULL) {
-            perror("Error opening file");
-            return;
-            }
+            Student();
             break;
         case 3:
             exit(0);
