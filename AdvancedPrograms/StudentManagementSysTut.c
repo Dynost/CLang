@@ -22,9 +22,7 @@ int main() {
         printf("4. Update Student\n");
         printf("5. Delete Student\n");
         printf("6. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-        getchar();
+     
 
         St St; // Temporary structure to hold student data
         switch (choice)

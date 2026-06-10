@@ -12,12 +12,34 @@ typedef struct College{
     float cutoff;
 }Cl;
 
-
-
 void College(){
 
+    int choice;
+    printf("\nMenu:\n");
+    printf("1. Add College\n");
+    printf("2. Display Avaiable Colleges\n");
+    printf("3. Delete Colleges\n");
+    printf("4. Exit\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    getchar();
+    printf("\n");
+    switch (choice) {
+        case 1:
+            
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            exit(0);
+            break;
+        default:
+            printf("Invalid choice\n");
+            break;
+    }
 }
-
 void Student(){
     
 }
