@@ -77,50 +77,62 @@ int main()
     5 5 5 5 5 5 5 5 5
     */
 
-    int n;
-    scanf("%d", &n);
+    // int n;
+    // scanf("%d", &n);
 
-    int size = n*2-1;
-    int range  = n*2-1;
-    int i,j,k,l;
-    int t;
-    for (i = 1;i<=n*2/2;i++){
+    // int size = n*2-1;
+    // int range  = n*2-1;
+    // int i,j,k,l;
+    // int t;
+    // for (i = 1;i<=n*2/2;i++){
 
-        for (k = n; k>n-i+1;k--){
-            printf("%d ",k);
-        }
-        for (j = 1;j<=range;j++){
-            printf("%d ",n-i+1);
-        }
-        for (l = n - i + 2;l <= n;l++){
-            printf("%d ",l);
-        }
-        printf("\n");
-        range = range - 2;
-    }
-    t = n - i + 3;
-    range = range + 4;
-    for (i = n*2/2-1;i>=1;i--){
+    //     for (k = n; k>n-i+1;k--){
+    //         printf("%d ",k);
+    //     }
+    //     for (j = 1;j<=range;j++){
+    //         printf("%d ",n-i+1);
+    //     }
+    //     for (l = n - i + 2;l <= n;l++){
+    //         printf("%d ",l);
+    //     }
+    //     printf("\n");
+    //     range = range - 2;
+    // }
+    // t = n - i + 3;
+    // range = range + 4;
+    // for (i = n*2/2-1;i>=1;i--){
         
-        for (k = n; k>t-1;k--){
-            printf("%d ",k);
-        }
-        for (j = 1;j<=range-1;j++){
-            printf("%d ",n-i+1);
-        }
-        for (l = t+1;l <= n;l++){
-            printf("%d ",l);
-        }
-        printf("\n");
-        range = range + 2;
-        t = n - i + 1;
-    }
+    //     for (k = n; k>t-1;k--){
+    //         printf("%d ",k);
+    //     }
+    //     for (j = 1;j<=range-1;j++){
+    //         printf("%d ",n-i+1);
+    //     }
+    //     for (l = t+1;l <= n;l++){
+    //         printf("%d ",l);
+    //     }
+    //     printf("\n");
+    //     range = range + 2;
+    //     t = n - i + 1;
+    // }
 
 
-    // printf("%d %d", t , range);
+    // // printf("%d %d", t , range);
 
-    return 0;
+    // return 0;
 
     //& #6 Hacker Rank (Medium)
+    char *s;
+    s = malloc(1024 * sizeof(char));
+    scanf("%[^\n]", s);
+    s = realloc(s, strlen(s) + 1);
+    //Write your logic to print the tokens of the sentence here.
+    char *token = strtok(s, " ");
+    while (token != NULL)
+    {
+        printf("%s\n", token);
+        token = strtok(NULL, " ");
+    }
+    return 0;
     
 }
