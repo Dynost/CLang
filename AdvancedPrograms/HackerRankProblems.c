@@ -39,16 +39,88 @@ int main()
 
     //! Rest solved in Hacker Rank platform itself
 
-    //& Test Drive:
-    int num, *arr, i;
-    scanf("%d", &num);
-    arr = (int*) malloc(num * sizeof(int));
-    for(i = 0; i < num; i++) {
-        scanf("%d", arr + i);
+    //& #4 HackerRank Problem (Medium)
+    // int num, *arr, i;
+    // scanf("%d", &num);
+    // arr = (int*) malloc(num * sizeof(int));
+    // for(i = 0; i < num; i++) {
+    //     scanf("%d", arr + i);
+    // }
+    // /* Write the logic to reverse the array. */
+    // for(i = 0; i < num; i++){
+    //     printf("%d ", arr[num - i - 1]);
+    // }
+    // return 0;
+
+    //& #5 HackerRank Problem (Medium)
+    //? Pattern: 
+    /*Sample Input 0
+    2
+    Sample Output 0
+
+    2 2 2
+    2 1 2
+    2 2 2
+    Sample Input 1
+
+    5
+    Sample Output 1
+
+    5 5 5 5 5 5 5 5 5 
+    5 4 4 4 4 4 4 4 5 
+    5 4 3 3 3 3 3 4 5 
+    5 4 3 2 2 2 3 4 5 
+    5 4 3 2 1 2 3 4 5 
+    5 4 3 2 2 2 3 4 5 
+    5 4 3 3 3 3 3 4 5 
+    5 4 4 4 4 4 4 4 5 
+    5 5 5 5 5 5 5 5 5
+    */
+
+    int n;
+    scanf("%d", &n);
+
+    int size = n*2-1;
+    int range  = n*2-1;
+    int i,j,k,l;
+    int t;
+    for (i = 1;i<=n*2/2;i++){
+
+        for (k = n; k>n-i+1;k--){
+            printf("%d ",k);
+        }
+        for (j = 1;j<=range;j++){
+            printf("%d ",n-i+1);
+        }
+        for (l = n - i + 2;l <= n;l++){
+            printf("%d ",l);
+        }
+        printf("\n");
+        range = range - 2;
     }
-    /* Write the logic to reverse the array. */
-    for(i = 0; i < num; i++){
-        printf("%d ", *(arr + i));
+    t = n - i + 3;
+    range = range + 4;
+    for (i = n*2/2-1;i>=1;i--){
+        
+        for (k = n; k>t-1;k--){
+            printf("%d ",k);
+        }
+        for (j = 1;j<=range-1;j++){
+            printf("%d ",n-i+1);
+        }
+        for (l = t+1;l <= n;l++){
+            printf("%d ",l);
+        }
+        printf("\n");
+        range = range + 2;
+        t = n - i + 1;
     }
+
+
+    // printf("%d %d", t , range);
+
     return 0;
+
+    //& #6 Hacker Rank (Medium)
+    
 }
