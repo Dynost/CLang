@@ -122,17 +122,38 @@ int main()
     // return 0;
 
     //& #6 Hacker Rank (Medium)
+    // char *s;
+    // s = malloc(1024 * sizeof(char));
+    // scanf("%[^\n]", s);
+    // s = realloc(s, strlen(s) + 1);
+    // //Write your logic to print the tokens of the sentence here.
+    // char *token = strtok(s, " ");
+    // while (token != NULL)
+    // {
+    //     printf("%s\n", token);
+    //     token = strtok(NULL, " ");
+    // }
+
+    //& #7 Hacker Rank (Medium)
+    //? Digit Frequency
+
     char *s;
     s = malloc(1024 * sizeof(char));
     scanf("%[^\n]", s);
     s = realloc(s, strlen(s) + 1);
-    //Write your logic to print the tokens of the sentence here.
-    char *token = strtok(s, " ");
-    while (token != NULL)
-    {
-        printf("%s\n", token);
-        token = strtok(NULL, " ");
-    }
-    return 0;
+    int arr[10] = {0};
     
+    int i;
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        if (s[i] >= '0' && s[i] <= '9')
+            arr[s[i] - '0']++; // Use: s[i] - '0' to get the correct digit offset bcoz character array stores value in ASCII. 
+            //$ Example Explanation:The array arr is being used as a frequency table, where each position stores how many times a particular digit has appeared. For example, if s[i] is '5', then s[i] - '0' becomes 5, and arr[5]++ increases the count of digit 5 by one.
+    }
+    for (i = 0; i < 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
 }
