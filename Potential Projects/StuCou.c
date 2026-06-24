@@ -2,32 +2,55 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct Student{
+typedef struct StudentSt{
     char name[50];
-    float percentile;
+    float marks;
 }St;
 
-typedef struct College{
-    char Clname[50];
-    float cutoff;
+typedef struct CollegeSt {
+    char clName[50];
+    float clCutoff;
 }Cl;
 
-void College(){
+void College();
+void Student();
 
-    int choice;
-    printf("\nMenu:\n");
+void College(){
+    FILE *fp;
+    fp = fopen("college.txt", "a+");
+    if (fp == NULL)
+    {
+        printf("Error opening file");
+        exit(1);
+    }
+    int ch;
+    printf("\n---Menu:---\n");
     printf("1. Add College\n");
     printf("2. Display Avaiable Colleges\n");
     printf("3. Delete Colleges\n");
     printf("4. Exit\n");
     printf("Enter your choice: ");
-    scanf("%d", &choice);
+    scanf("%d", &ch);
     getchar();
     printf("\n");
-    switch (choice) {
-        case 1:
-            
+
+    Cl Col;
+
+    switch (ch) {
+        case 1:{
+            char nameTemp[50];
+            printf("Enter College Name: ");
+            scanf("%[^\n]", nameTemp);
+            strcpy(Col.clName, nameTemp);
+            getchar();
+            printf("Enter Cutoff: ");
+            scanf("%f", &Col.clCutoff);
+            getchar();
+            fprintf(fp, "%s %f\n", Col.clName, Col.clCutoff);
+            fclose(fp);
+            printf("College added successfully.\n\n");
             break;
+        }
         case 2:
             break;
         case 3:
@@ -39,24 +62,17 @@ void College(){
             printf("Invalid choice\n");
             break;
     }
+    College();
 }
+
 void Student(){
-    
+    exit(0);
 }
 
-
-int main() {
-    FILE *fp;
-    FILE *fp2;
-
-    fp = fopen("college.txt", "w");
-    fp2 = fopen("student.txt", "w");
-    if (fp == NULL) {
-    perror("Error opening file");
-    return;
-    }
-
+int main()
+{
     int choice;
+    printf("------Welcome to Parent Portal------\n");
     printf("Press 1: College Management System\n");
     printf("Press 2: Student Counselling System\n");
     printf("Press 3: Exit\n");
@@ -79,5 +95,5 @@ int main() {
             break;
     }
 
-
+    return 0;
 }
