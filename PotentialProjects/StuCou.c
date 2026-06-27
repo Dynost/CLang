@@ -35,11 +35,10 @@ void College(){
     printf("\n");
 
     Cl Col;
-
     switch (ch) {
         case 1:{
             char nameTemp[50];
-            printf("Enter College Name: ");
+            printf("Enter College Name: (Don't Give Space) ");
             scanf("%[^\n]", nameTemp);
             strcpy(Col.clName, nameTemp);
             getchar();
@@ -51,16 +50,40 @@ void College(){
             printf("College added successfully.\n\n");
             break;
         }
-        case 2:
+        case 2:{  
+            printf("--- Avaiable Colleges: ---\n");
+            while (fscanf(fp, "%s %f", Col.clName, &Col.clCutoff) != EOF) {
+                printf("Name: %s\nCutoff: %.2f\n", Col.clName, Col.clCutoff);
+            }
+            fclose(fp);
+            int cc;
+            printf("\n\nContinue?\n1. Yes\n2. No\n(Enter 1 or 2)\nEnter your choice: ");
+            scanf("%d", &cc);
+            getchar();
+            printf("\n");
+            switch (cc) {
+                case 1:
+                    College();
+                    break;
+                case 2:
+                    exit(0);
+                    break;
+                default:
+                    College();
+                    break;
+            }
             break;
-        case 3:
+        }
+        case 3:{
             break;
+        }
         case 4:
             exit(0);
             break;
         default:
             printf("Invalid choice\n");
             break;
+
     }
     College();
 }
