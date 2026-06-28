@@ -13,7 +13,7 @@ int main() {
     int len =  fread(buffer, 1, sizeof(buffer), fp);
     fclose(fp);
 
-    //& parse the json object
+    //& parse the json buffer
     cJSON* json = cJSON_Parse(buffer);
 
     //& check if the json object is null

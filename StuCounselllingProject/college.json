@@ -1,10 +1,6 @@
-[{
-    "Name": "Chandigarh University",
-    "Location": "Chandigarh",
-    "Established": "1950"
-},
 {
-    "Name": "Delhi University",
-    "Location": "Delhi",
-    "Established": "1950"
-}]
+	"Name":"Default College"
+},{
+	"Name":	"Kolhapuri",
+	"Cutoff":	200
+}
