@@ -1,6 +1,9 @@
-{
-	"Name":"Default College"
-},{
-	"Name":	"Kolhapuri",
-	"Cutoff":	200
-}
+[{
+		"Name":	"Default College"
+	}, {
+		"Name":	"Kolhapuri",
+		"Cutoff":	200
+	}, {
+		"Name":	"Lahamlurdo",
+		"Cutoff":	190
+	}]
